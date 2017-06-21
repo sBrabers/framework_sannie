@@ -9,7 +9,10 @@ const LoadScreen = {
 
         // bind methode this.endLoadscreen aan window.onload, zorg ervoor
         // dat het LoadScreen object als context wordt gezien
-        window.onload = this.endLoadscreen.bind(this);
+        // Ik heb een extra seconden toegevoegd voor pagina's die te snel geladen
+        window.onload = () => {
+            setTimeout(this.endLoadscreen.bind(this), 1000);                       
+        };
     },
 
     checkAltBody() {
